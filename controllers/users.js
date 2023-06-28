@@ -28,6 +28,8 @@ const register = async (req, res, next) => {
       d: "mm",
     });
     const newUser = new User({ email, password, subscription, avatarURL });
+    const newUser = new User({ email, password, subscription });
+
     newUser.setPassword(password);
     await newUser.save();
     res.status(201).json({
@@ -64,6 +66,7 @@ const login = async (req, res, next) => {
   user.setToken(token);
   await user.save();
   res.status(200).json({
+  res.json({
     status: "success",
     code: 200,
     data: {

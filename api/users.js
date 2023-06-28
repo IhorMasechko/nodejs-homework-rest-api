@@ -18,5 +18,4 @@ router.patch(
   userController.updateAvatar
 );
 router.delete("/", userController.deleteUserByMail);
-
 module.exports = router;
