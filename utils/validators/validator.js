@@ -7,10 +7,10 @@ const contactSchema = joi.object({
   favorite: joi.boolean(),
 });
 
-const validator = (schema) => (body) => {
-  return schema.validate(body);
-};
+const userSchema = joi.object({
+  email: joi.string().email(),
+  password: joi.string(),
+  subscription: joi.string().valid("starter", "pro", "business"),
+});
 
-const contactValidator = validator(contactSchema);
-
-module.exports = { contactValidator };
+module.exports = { contactSchema, userSchema };
